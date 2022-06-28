@@ -162,64 +162,69 @@ class HomePage extends StatelessWidget {
           margin: EdgeInsets.only(left: defaultHome),
           child: Row(
             children: myList.map((data) {
-              return Container(
-                margin: EdgeInsets.only(top: 12, right: 12),
-                width: 148,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: BackgroundTextColor1),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      margin: EdgeInsets.symmetric(horizontal: 6, vertical: 6),
-                      width: 139,
-                      height: 91,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(
-                          12,
-                        ),
-                        image: DecorationImage(
-                          image: AssetImage(
-                              '${data['gambar']}'),
-                          fit: BoxFit.fill,
+              return InkWell(
+                onTap: (){
+                  Navigator.pushNamed(context, '/detail-page');
+                },
+                child: Container(
+                  margin: EdgeInsets.only(top: 12, right: 12),
+                  width: 148,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: BackgroundTextColor1),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.symmetric(horizontal: 6, vertical: 6),
+                        width: 139,
+                        height: 91,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(
+                            12,
+                          ),
+                          image: DecorationImage(
+                            image: AssetImage(
+                                '${data['gambar']}'),
+                            fit: BoxFit.fill,
+                          ),
                         ),
                       ),
-                    ),
-                    Container(
+                      Container(
+                          margin: EdgeInsets.only(top: 4, left: 8, right: 8),
+                          child: Text(
+                            '${data['namaTempat']}',
+                            style: BlackTextStyle.copyWith(
+                                fontSize: 14, fontWeight: medium),
+                          )),
+                      Container(
+                          margin: EdgeInsets.only(left: 8, right: 8),
+                          child: Image.asset(
+                            '${data['rating']}',
+                            width: 90,
+                          )),
+                      Container(
                         margin: EdgeInsets.only(top: 4, left: 8, right: 8),
-                        child: Text(
-                          '${data['namaTempat']}',
-                          style: BlackTextStyle.copyWith(
-                              fontSize: 14, fontWeight: medium),
-                        )),
-                    Container(
-                        margin: EdgeInsets.only(left: 8, right: 8),
-                        child: Image.asset(
-                          '${data['rating']}',
-                          width: 90,
-                        )),
-                    Container(
-                      margin: EdgeInsets.only(top: 4, left: 8, right: 8),
-                      child: Row(
-                        children: [
-                          Text(
-                            'Starting At',
-                            style: BlackTextStyle.copyWith(
-                                fontSize: 14, fontWeight: medium),
-                          ),
-                          SizedBox(
-                            width: 3,
-                          ),
-                          Text(
-                            '\$${data['harga']}',
-                            style: BlackTextStyle.copyWith(
-                                fontSize: 14, fontWeight: medium),
-                          )
-                        ],
-                      ),
-                    )
-                  ],
+                        child: Row(
+                          children: [
+                            Text(
+                              'Starting At',
+                              style: BlackTextStyle.copyWith(
+                                  fontSize: 14, fontWeight: medium),
+                            ),
+                            SizedBox(
+                              width: 3,
+                            ),
+                            Text(
+                              '\$${data['harga']}',
+                              style: BlackTextStyle.copyWith(
+                                  fontSize: 14, fontWeight: medium),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               );
             }).toList(),
