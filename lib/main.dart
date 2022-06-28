@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:travelingo_apps/home/main-page.dart';
+import 'package:travelingo_apps/pages/detail-product.dart';
 import 'package:travelingo_apps/pages/forget-password.dart';
 import 'package:travelingo_apps/pages/login-page.dart';
 import 'package:travelingo_apps/pages/register-page.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
       '/forget-password':(context) => ForgetPasswordPage(),
       '/verification-page':(context) => VerificationAccount(),
       '/main-page-home':(context) => MainPageHome(),
+      '/detail-page':(context) => DetailProduct(),
      },
     );
   }
