@@ -121,7 +121,7 @@ class VerificationAccount extends StatelessWidget {
                   color: primaryTextColor),
               child: TextButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/main-page-home');
+                    Navigator.pushNamedAndRemoveUntil(context, '/main-page-home', (route) => false);
                   },
                   child: Text(
                     'Verify',
